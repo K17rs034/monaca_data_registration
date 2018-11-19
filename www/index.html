@@ -26,6 +26,15 @@
                     alert("Failed to create new object, with error code: " + error.text);
                 });
         }
+
+        function fetchDemo() {
+          var TestClass = ncmb.DataStore("TestClass");
+          TestClass.fetch().then(function(results){
+            var data=results.get("message");
+            var update=results.get("updateData");
+            $("#fetch").html(data + ":" + update);
+          })
+        }
     </script>
 </head>
 <body>
