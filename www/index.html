@@ -39,12 +39,14 @@
         function fetchAll() {
           var TestClass = ncmb.DataStore("TestClass");
           TestClass.fetchAll().then(function(results){
-            var msg="";
+            var msg="<table border='1' rules='all'>";
+            msg += "<tr><th>message</th><th>Update Date</th></tr>";
             for(var i=0; i<results.length; i++) {
               var data=results[i].get("message");
               var update=results[i].get("updateDate");
-              msg += data + ":" + update + "<br>";
+              msg += "<tr><td>" + data + "</td><td>" + update + "</td></tr>";;
             }
+            msg += "</table>";
             $("#fetch").html(msg);
           })
         }
